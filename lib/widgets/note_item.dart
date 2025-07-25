@@ -25,7 +25,7 @@ class NoteItem extends StatelessWidget {
                 'Build your flutter career',
                 style: TextStyle(
                   color: Colors.black.withOpacity(0.4),
-                  fontSize: 20,
+                  fontSize: 18,
                 ),
               ),
             ),
