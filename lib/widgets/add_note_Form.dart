@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/add_notes_cubit/add_notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/notes_view.dart';
 import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({super.key});
@@ -52,14 +54,11 @@ class _AddNoteFormState extends State<AddNoteForm> {
                     var noteModel = NoteModel(
                       title: title!,
                       subTitle: subTitle!,
-                      date: DateTime.now().toString(),
+                      date:
+                          DateFormat.yMMMd().format(DateTime.now()).toString(),
                       color: Colors.blue.value,
                     );
                     BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => NotesView()),
-                    );
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
