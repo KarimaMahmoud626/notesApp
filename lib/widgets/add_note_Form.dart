@@ -47,10 +47,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
               return CustomButton(
                 isLoading: state is AddNoteLoading ? true : false,
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => NotesView()),
-                  );
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     var noteModel = NoteModel(
@@ -60,6 +56,10 @@ class _AddNoteFormState extends State<AddNoteForm> {
                       color: Colors.blue.value,
                     );
                     BlocProvider.of<AddNotesCubit>(context).addNote(noteModel);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => NotesView()),
+                    );
                   } else {
                     autovalidateMode = AutovalidateMode.always;
                     setState(() {});
