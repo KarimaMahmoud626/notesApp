@@ -3,10 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/add_notes_cubit/add_notes_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
-import 'package:notes_app/views/notes_view.dart';
 import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/custom_text_field.dart';
-import 'package:intl/date_symbol_data_local.dart';
 
 class AddNoteForm extends StatefulWidget {
   const AddNoteForm({super.key});
@@ -30,18 +28,18 @@ class _AddNoteFormState extends State<AddNoteForm> {
         children: [
           SizedBox(height: 32),
           CustomTextField(
-            hint: 'Title',
             onSaved: (value) {
               title = value;
             },
+            hint: 'Title',
           ),
           SizedBox(height: 16),
           CustomTextField(
-            hint: 'Content',
-            maxLines: 5,
             onSaved: (value) {
               subTitle = value;
             },
+            hint: 'Content',
+            maxLines: 5,
           ),
           SizedBox(height: 46),
           BlocBuilder<AddNotesCubit, AddNotesState>(
