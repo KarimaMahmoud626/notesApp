@@ -21,6 +21,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   String? title, subTitle;
+  Color? noteColor;
   @override
   Widget build(BuildContext context) {
     return Form(
